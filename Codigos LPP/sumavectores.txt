@@ -1,0 +1,48 @@
+arreglo[100]de caracter a
+arreglo[100]de caracter b
+arreglo[100]de caracter c
+entero i,j,n,m
+
+Inicio
+
+    escriba "SUMA DE VECTORES"
+	llamar nueva_Linea
+	escriba "Ingrese su nombre: "
+	lea nombre
+	escriba "Ingrese la cantidad de elementos en el vector uno: "
+	lea n
+	escriba "Ingrese la cantidad de elementos en el vector dos: "
+	lea m
+
+	llamar nueva_Linea
+	escriba "VECTOR A"
+	llamar nueva_Linea
+	//Llenar vector
+	para i<-1 hasta n haga
+		escriba "Ingrese un caracter en la posicion [",i,"]: "
+		lea a[i]
+	fin para
+
+	llamar nueva_Linea
+	escriba "VECTOR B"
+	llamar nueva_Linea
+	para i<-1 hasta m haga
+		escriba "Ingrese un caracter en la posicion [",i,"]: "
+		lea b[i]
+	fin para
+
+	para i<-1 hasta n haga
+		c[i]<-a[i]
+	fin para
+	para i<-1 hasta m haga
+		c[n+i]<-b[i]
+	fin para
+	llamar nueva_Linea
+	escriba "VECTOR C"
+	llamar nueva_Linea
+	para i<-1 hasta (n+m) haga
+			escriba "Numero posicion [",i,"] es: ",c[i]
+			llamar nueva_linea
+	fin para
+
+Fin

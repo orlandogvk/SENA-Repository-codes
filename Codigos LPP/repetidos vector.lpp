@@ -1,0 +1,48 @@
+entero i 
+entero j,aux,aux2
+arreglo [5] de entero A
+arreglo [5] de entero contador
+
+Inicio
+
+	Escriba "Llenado del vector"
+	Llamar Nueva_linea 
+	Para i<-1 hasta 5 haga
+		Escriba "Ingrese un elemento en la posicion ",i, " del vector: "
+		Llamar Nueva_linea 
+		Lea A[i]
+		contador[i]<-0
+	Fin para
+	Llamar Nueva_linea 
+
+	Para i<-1 hasta 5 haga
+		Para j<-1 hasta 5 haga
+			Si A[i]=A[j] entonces
+				contador[i]<-contador[i]+1
+			Fin si
+		Fin para
+	Fin para	
+
+	Para i<-1 hasta 5 haga
+		Para j<-i+1 hasta 5 haga
+			Si A[i]>A[j] entonces
+				aux<-A[i]
+				aux2<-contador[i]
+				A[i]<-A[j]
+				contador[i]<-contador[j]
+				A[j]<-aux
+				contador[j]<-aux2
+			Fin si
+		Fin para
+	Fin para	
+	
+	Para i<-1 hasta 5 haga
+		si A[i]<>A[i-1] entonces
+			si(contador[i]>1) entonces
+				Escriba "El numero ",A[i]," se repite ",contador[i]-1," veces y se encuentra ",contador[i]," veces en el vector"
+				Llamar Nueva_linea
+			Fin si
+		Fin Si
+	Fin para
+
+Fin

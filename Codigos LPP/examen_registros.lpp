@@ -1,0 +1,295 @@
+// ORLANDO RODRIGUEZ PRADA CC 3507502
+registro Reg_Dat_Personales
+	entero doc
+	cadena[50] nombre
+	entero edad
+	caracter gen
+	cadena[20] dir
+	cadena[10]tel
+	cadena[10]email
+fin registro
+
+registro Reg_Dat_Estudiante
+	entero doc
+	cadena[10] prog
+	cadena[10]fechI
+	real n1,n2,n3,n4
+fin registro
+
+entero i,n,cf,cma,op,cc,cd,cs,cm,pos
+real not1,not2,not3,not4,promE,sumaP1,sumaP2,sumaP3,sumaP4,promP1,promP2,promP3,promP4,proMen,proMay,promG,promH,promM
+caracter gen
+arreglo [100] de Reg_Dat_Personales datosP
+arreglo[100] de Reg_Dat_Estudiante datosE
+
+Inicio
+	escriba "Ingrese la cantidad de estudiantes: "
+	Lea n
+	cf<-0
+	cma<-0
+	cc<-0
+	cd<-0
+	cs<-0
+	cm<-0
+	sumaP1<-0
+	sumaP2<-0
+	sumaP3<-0
+	sumaP4<-0
+	proMen<-9999.0
+	proMay<-0.0
+	Para i<-1 hasta n haga
+			//Primer registro
+			Escriba "Ingrese el documento del estudiante ",i," : "
+			Lea datosP[i].doc
+			Escriba "Ingrese el nombre: "
+			Lea datosP[i].nombre
+			Escriba "Ingrese el genero F/f  o   M/m: "
+			Lea gen
+			si(gen='f')o(gen='F') entonces
+					datosP[i].gen<-gen
+					cf<-cf+1
+			sino
+				si(gen='m')o(gen='M') entonces
+					datosP[i].gen<-gen
+					cma<-cma+1
+				sino 
+						Escriba "Datos erroneos"
+						i<-i-1
+				fin si
+			fin si
+			Escriba "Ingrese la direccion: "
+			Lea datosP[i].dir
+			Escriba "Ingrese el telefono: "
+			Lea datosP[i].tel
+			Escriba "Ingrese el correo: "
+			Lea datosP[i].email
+			Llamar nueva_linea
+	Fin Para
+	
+			
+	Para i<-1 hasta n haga
+			//Segundo registro
+		
+			datosE[i].doc<-datosP[i].doc        //Asigno el documento del estudiante del primer registro al segundo registro
+			Escriba "Estudiante: ",datosP[i].nombre
+			Llamar nueva_linea
+			Escriba "Ingrese el programa: "
+			Llamar nueva_linea
+			Escriba "1.Contabilidad"
+			Llamar nueva_linea
+			Escriba "2.Derecho"
+			Llamar nueva_linea
+			Escriba "3.Sistemas"
+			Llamar nueva_linea
+			Escriba "4.Medicina"
+			Llamar nueva_linea
+			Escriba "Escoja una opcion entre 1 y 4: "
+			Lea op
+			Caso op
+				1:	datosE[i].prog<-"Contabilidad"
+					cc<-cc+1
+					repita
+						Escriba "Ingrese la primera nota: "
+						Lea not1
+					hasta (not1>=0)y(not1<=5)
+						datosE[i].n1<-not1
+			
+					repita
+						Escriba "Ingrese la segunda nota: "
+						Lea not2
+					hasta (not2>=0)y(not2<=5)
+						datosE[i].n2<-not2
+			
+					repita
+						Escriba "Ingrese la tercera nota: "
+						Lea not3
+					hasta (not3>=0)y(not3<=5)
+						datosE[i].n3<-not3
+			
+					repita
+						Escriba "Ingrese la cuarta nota: "
+						Lea not4
+					hasta (not4>=0)y(not4<=5)
+						datosE[i].n4<-not4
+					Llamar nueva_linea
+					promE<-(datosE[i].n1+datosE[i].n2+datosE[i].n3+datosE[i].n4)/4             //promedio por cada estudiante de contabilidad
+					si(promE<proMen)entonces
+						proMen<-promE
+						pos<-i
+					fin si
+					si(promE>proMay)entonces
+						proMay<-promE
+						pos<-i
+					fin si
+					Escriba "El promedio es: ",promE
+						Llamar nueva_linea
+					Escriba "El estudiante de menor promedio es: ",pos
+						Llamar nueva_linea
+					Escriba "El estudiante de mayor promedio es: ",pos
+					sumaP1<-sumaP1+promE
+					                     
+				2:	datosE[i].prog<-"Derecho"
+					cd<-cd+1
+					repita
+						Escriba "Ingrese la primera nota: "
+						Lea not1
+					hasta (not1>=0)y(not1<=5)
+						datosE[i].n1<-not1
+			
+					repita
+						Escriba "Ingrese la segunda nota: "
+						Lea not2
+					hasta (not2>=0)y(not2<=5)
+						datosE[i].n2<-not2
+			
+					repita
+						Escriba "Ingrese la tercera nota: "
+						Lea not3
+					hasta (not3>=0)y(not3<=5)
+						datosE[i].n3<-not3
+			
+					repita
+						Escriba "Ingrese la cuarta nota: "
+						Lea not4
+					hasta (not4>=0)y(not4<=5)
+						datosE[i].n4<-not4
+					Llamar nueva_linea
+					promE<-(datosE[i].n1+datosE[i].n2+datosE[i].n3+datosE[i].n4)/4             //promedio por cada estudiante de derecho
+						si(promE<proMen)entonces
+						proMen<-promE
+						pos<-i
+					fin si
+					si(promE>proMay)entonces
+						proMay<-promE
+						pos<-i
+					fin si
+					Escriba "El promedio es: ",promE
+						Llamar nueva_linea
+					Escriba "El estudiante de menor promedio es: ",pos
+						Llamar nueva_linea
+					Escriba "El estudiante de mayor promedio es: ",pos
+					sumaP1<-sumaP1+promE
+					Escriba "El promedio es: ",promE
+					sumaP2<-sumaP2+promE  
+				3:	datosE[i].prog<-"Sistemas"
+					cs<-cs+1
+					repita
+						Escriba "Ingrese la primera nota: "
+						Lea not1
+					hasta (not1>=0)y(not1<=5)
+						datosE[i].n1<-not1
+			
+					repita
+						Escriba "Ingrese la segunda nota: "
+						Lea not2
+					hasta (not2>=0)y(not2<=5)
+						datosE[i].n2<-not2
+			
+					repita
+						Escriba "Ingrese la tercera nota: "
+						Lea not3
+					hasta (not3>=0)y(not3<=5)
+						datosE[i].n3<-not3
+			
+					repita
+						Escriba "Ingrese la cuarta nota: "
+						Lea not4
+					hasta (not4>=0)y(not4<=5)
+						datosE[i].n4<-not4
+					Llamar nueva_linea
+					promE<-(datosE[i].n1+datosE[i].n2+datosE[i].n3+datosE[i].n4)/4             //promedio por cada estudiante de sistemas
+						si(promE<proMen)entonces
+							proMen<-promE
+							pos<-i
+						fin si
+						si(promE>proMay)entonces
+							proMay<-promE
+							pos<-i
+						fin si
+					Escriba "El promedio es: ",promE
+						Llamar nueva_linea
+					Escriba "El estudiante de menor promedio es: ",pos
+						Llamar nueva_linea
+					Escriba "El estudiante de mayor promedio es: ",pos
+					sumaP1<-sumaP1+promE
+					Escriba "El promedio es: ",promE
+					sumaP3<-sumaP3+promE  
+				4:	datosE[i].prog<-"Medicina"
+					cm<-cm+1
+					repita
+						Escriba "Ingrese la primera nota: "
+						Lea not1
+					hasta (not1>=0)y(not1<=5)
+						datosE[i].n1<-not1
+			
+					repita
+						Escriba "Ingrese la segunda nota: "
+						Lea not2
+					hasta (not2>=0)y(not2<=5)
+						datosE[i].n2<-not2
+			
+					repita
+						Escriba "Ingrese la tercera nota: "
+						Lea not3
+					hasta (not3>=0)y(not3<=5)
+						datosE[i].n3<-not3
+			
+					repita
+						Escriba "Ingrese la cuarta nota: "
+						Lea not4
+					hasta (not4>=0)y(not4<=5)
+						datosE[i].n4<-not4
+					Llamar nueva_linea
+					promE<-(datosE[i].n1+datosE[i].n2+datosE[i].n3+datosE[i].n4)/4             //promedio por cada estudiante de medicina
+						si(promE<proMen)entonces
+							proMen<-promE
+							pos<-i
+						fin si
+						si(promE>proMay)entonces
+							proMay<-promE
+							pos<-i
+						fin si
+					Escriba "El promedio es: ",promE
+						Llamar nueva_linea
+					Escriba "El estudiante de menor promedio es: ",pos
+						Llamar nueva_linea
+					Escriba "El estudiante de mayor promedio es: ",pos
+					sumaP1<-sumaP1+promE
+					Escriba "El promedio es: ",promE
+					sumaP4<-sumaP4+promE  
+			Fin Caso
+			Llamar nueva_linea
+			Escriba "Ingrese fecha de ingreso: "
+			Lea datosE[i].fechI
+	Fin Para
+				Llamar nueva_linea
+				si(cc<>0) entonces
+					promP1<-sumaP1/cc
+					Escriba "Promedio notas estudiantes contabilidad: ",promP1
+				fin si 
+			    Llamar nueva_linea
+				si(cd<>0) entonces
+					promP2<-sumaP2/cd
+					Escriba "Promedio notas estudiantes derecho: ",promP2
+				fin si
+				Llamar nueva_linea
+				si(cs<>0) entonces
+					promP3<-sumaP3/cs
+					Escriba "Promedio notas estudiantes sistemas: ",promP3
+				fin si
+				Llamar nueva_linea
+					si(cm<>0) entonces
+					promP4<-sumaP4/cm
+					Escriba "Promedio notas estudiantes medicina: ",promP4
+				fin si
+			Llamar nueva_linea
+					promH<-cma/n
+			Escriba "Promedio total de hombres: ",promH
+					promM<-cf/n
+					Llamar nueva_linea
+			Escriba "Promedio total de mujeres: ",promM
+					Llamar nueva_linea
+			
+				promG<-promP1+promP2+promP3+promP4/4
+				Escriba "El promedio general de la universidad es: ",promG
+Fin

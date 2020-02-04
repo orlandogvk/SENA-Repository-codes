@@ -1,0 +1,51 @@
+arreglo[5] de entero A
+entero i,cp,ci
+
+Inicio
+
+		cp<-0
+		ci<-0
+	//Llenado del vector	
+	para i<-1 hasta 5 haga
+ 	    Escriba "LLENAR VECTOR"
+ 	 	Llamar nueva_linea
+		Escriba "Ingrese un numero en la posicion ",i,": "
+		Lea A[i]
+		Llamar limpiar_pantalla
+	fin para
+	//Evaluacion del vector
+	para i<-1 hasta 5 haga
+		si A[i] mod 2 = 0 entonces
+			cp<-cp+1
+		sino
+			ci<-ci+1
+		fin si
+	fin para
+		Llamar nueva_linea
+		Escriba "RESULTADO"                      //Resultados
+		Llamar nueva_linea
+		si(cp=1) entonces
+			Escriba "Existe ",cp," numero par en el vector"
+			Llamar nueva_linea
+		sino
+			si(cp>1) entonces
+				Escriba "Existen ",cp," numeros pares en el vector"
+				Llamar nueva_linea
+			sino
+				Escriba "No hay numeros pares"
+				Llamar nueva_linea
+			fin si
+		fin si
+		si(ci=1) entonces
+			Escriba "Existe ",ci," numero impar en el vector"
+		sino
+			si(ci>1) entonces
+				Escriba "Existen ",ci, " numeros impares en el vector"
+				Llamar nueva_linea
+			sino
+				Escriba "No hay numeros impares"
+				Llamar nueva_linea
+			fin si
+		fin si
+	
+Fin

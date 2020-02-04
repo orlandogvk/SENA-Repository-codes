@@ -1,0 +1,39 @@
+arreglo[5] de entero A
+entero i
+entero mayor
+entero menor
+
+
+Inicio
+mayor<-0
+menor<-9999999999999
+//Llenamos el vector
+
+
+	Para i<-1 hasta 5 haga
+		Escriba "Llenar vector "
+		Llamar nueva_linea
+		Escriba "Digite un numero para la posicion ",i," : "
+		lea A[i]
+		Llamar limpiar_pantalla
+	Fin Para
+
+		
+//Realizamos la validacion
+
+	Para i<-1 hasta 5 haga
+	
+		Si  A[i]>mayor Entonces
+			mayor<-A[i]
+		Fin Si
+		Si  A[i]<menor Entonces
+			menor<-A[i]
+		Fin Si
+		
+	Fin Para
+		Llamar color_fondo(12)
+		Llamar nueva_linea
+		Escriba "El mayor es: ",mayor
+		Llamar nueva_linea
+		Escriba "El menor es: ",menor
+Fin

@@ -1,0 +1,61 @@
+/* Utilizar un registro para pedir el nombre del alumno, su codigo de estudiante y su carrera, para luego mostrar en pantalla sus datos.
+*/
+
+registro reg_alumno
+	cadena[30] nombre
+	entero codigo
+	cadena [30] carrera
+fin registro
+entero i,j,aux,n
+cadena[30] aux2,aux3
+arreglo[50] de reg_alumno alumn
+
+inicio
+	Escriba "Enter cant of students: "
+	Lea n
+	Para i<-1 hasta n haga
+		escriba "Enter the student's name: "
+		lea alumn[i].nombre
+		escriba "Enter the student's code: "
+		lea alumn[i].codigo
+		escriba "Enter the program: "
+		lea alumn[i].carrera
+		llamar Limpiar_Pantalla
+	Fin Para 
+  si(n>1) entonces
+	Para i<-1 hasta n haga
+		llamar nueva_linea
+		escriba "The student ",alumn[i].nombre
+		llamar nueva_linea
+		escriba "With code ",alumn[i].codigo," study ",alumn[i].carrera
+	Fin Para
+
+		Para i<-1 hasta n haga
+			Para j<-i+1 hasta n haga
+				si(alumn[i].codigo>alumn[j].codigo)entonces
+					aux<-alumn[i].codigo
+					aux2<-alumn[i].nombre
+					aux3<-alumn[i].carrera
+				
+					alumn[i].codigo<-alumn[j].codigo
+					alumn[i].nombre<-alumn[j].nombre
+					alumn[i].carrera<-alumn[j].carrera
+				
+					alumn[j].codigo<-aux
+			    	alumn[j].nombre<-aux2
+			    	alumn[j].carrera<-aux3
+				fin si
+			Fin Para
+		Fin Para
+	fin si
+		llamar nueva_linea
+	Escriba "REGISTER ORDERED"	
+	Para i<-1 hasta n haga
+		llamar nueva_linea
+		escriba "The student ",alumn[i].nombre
+		llamar nueva_linea
+		escriba "With code ",alumn[i].codigo," study ",alumn[i].carrera
+	Fin Para
+	
+fin
+

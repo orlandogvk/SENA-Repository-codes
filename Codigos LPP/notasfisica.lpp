@@ -1,0 +1,39 @@
+real calif
+entero i,c1,c2,c3,c4
+Inicio
+	c1<-0
+	c2<-0
+	c3<-0
+	c4<-0
+ Para i<-1 hasta 10 haga 
+	
+	Llamar nueva_linea
+	Repita
+		Llamar Limpiar_Pantalla
+		Escriba "Ingrese una calificacion valida entre 1 y 100: "
+		Lea calif
+	Hasta (calif>=1) o (calif<=100) //Se rompe hasta que la condicion sea verdadera,  se seguira ejecutando mientras sea falso
+	 Escriba "Estudiante ",i
+	 si (calif<50) entonces
+	 	c1<-c1+1
+	 sino
+	 	si (calif>=50) y (calif<70) entonces
+	 		c2<-c2+1
+	 	sino
+	 		si (calif>=70) y (calif<80) entonces
+	 			c3<-c3+1
+	 		sino
+	 			c4<-4+1
+	 		fin si
+	 	fin si
+	 fin si	
+ Fin Para
+ 	Llamar nueva_linea
+ 	Escriba "CALIFICACIONES EXAMEN DE FISICA"
+ 	Llamar nueva_linea
+ 	Escriba "Notas entre 50 y 69: ",c2
+ 	Llamar nueva_linea
+ 	Escriba "Notas entre 70 y 79]: ",c3
+ 	Llamar nueva_linea
+ 	Escriba "Notas superiores a 80: ",c4
+Fin
